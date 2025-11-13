@@ -216,15 +216,16 @@ Figure의 순서는 그림의 위치가 변경되면 자동으로 바뀐다.
 ### 동영상 입력
 동영상을 파일을 넣거나, `Youtube`같은 동영상 플랫폼을 사용 가능하다.
 파일을 넣는 경우  `mp4`파일을 직접 넣어준 후 `{figure}` 혹은 `![](./videos/links.mp4)`을 사용해 넣을 수 있다.
+
 ::::
-:::{figure} ./Image_video\Lx128Ly128alpha-1beta1eta0.10.mp4
+:::{figure} ./Image_video/Lx128Ly128alpha-1beta1eta0.10.mp4
 :label: vid:vicsek_model
 
 caption $L_x=L_y=128,\alpha=-1,\beta=1,\eta=0.1$에서의 3종의 vicsek model 시뮬레이션 동영상. 붉은 색은 R, 초록색은 S, 파랑색은 P에 해당된다.
 :::
 ::::
 
-:::{figure} ./Image_video\Lx128Ly128alpha-1beta1eta0.10.mp4
+:::{figure} ./Image_video/Lx128Ly128alpha-1beta1eta0.10.mp4
 :label: vid:vicsek_model
 
 caption $L_x=L_y=128,\alpha=-1,\beta=1,\eta=0.1$에서의 3종의 vicsek model 시뮬레이션 동영상. 붉은 색은 R, 초록색은 S, 파랑색은 P에 해당된다.
