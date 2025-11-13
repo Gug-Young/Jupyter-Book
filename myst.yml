@@ -1,0 +1,27 @@
+# See docs at: https://mystmd.org/guide/frontmatter
+version: 1
+project:
+  id: 04346424-d0cd-4715-bd3c-be128975ffbc
+  title: 251114 CSG 저널클럽
+  description: 2025년 11월 14일 CSG 저널클럽 발표 — Jupyter Book 소개 및 연구 문서화 워크플로우 데모
+  keywords:
+    - Jupyter Book
+    - MyST Markdown
+    - Research documentation
+    - Reproducible research
+    - Hanyang University
+    - Complex Science Group
+  authors:
+    - name: Gugyoung Kim
+      affiliations:
+        - Complex Science Group Laboratory, Hanyang University
+      email: kim9young.kim@hanyang.ac.kr
+  github: https://github.com/Gug-Young/Jupyter-Book
+  # To autogenerate a Table of Contents, run "jupyter book init --write-toc"
+site:
+  template: book-theme
+  # options:
+  #   favicon: favicon.ico
+  #   logo: site_logo.png
+bibliography:
+  - kuramoto.bib
