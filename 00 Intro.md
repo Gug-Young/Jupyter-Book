@@ -109,11 +109,38 @@ source .venv/bin/activate
 
 가상환경을 활성화 해준 상태에서 `jupyter book`을 설치해 준다.
 
-```{code}
+```{code} bash
 :filename: install
 pip install jupyter-book
 jupyter book start
 ```
+
+만약 정상적으로 실행이 된다면
+
+```text
+🐕 Fetching template metadata from https://api.mystmd.org/templates/site/myst/book-theme
+💾 Saved template to path _build/templates/site/myst/book-theme
+⤵️ Installing web libraries (can take up to 60 s)
+📦 Installed web libraries in 13 s
+📖 Built interactive-graphs.ipynb in 21 ms.
+📖 Built paper.md in 32 ms.
+📖 Built README.md in 35 ms.
+📚 Built 3 pages for myst in 82 ms.
+
+  ✨✨✨  Starting Book Theme  ✨✨✨
+
+⚡️ Compiled in 524ms.
+
+🔌 Server started on port 3000!  🥳 🎉
+
+  👉  http://localhost:3000  👈
+```
+이런 문서가 뜰 것이다.
+
+하지만 파일이 아무것도 없거나 `npm`등이 안깔려 있을 경우 에러가 뜰 것이다.
+이후 초기화 해줄때는 `jupyter book init`을 입력하거나. [Jupyter Book](https://jupyterbook.org/stable/get-started/init/)링크를 참고하면 된다.
+
+
 
 :::::{note} 추가로 설치 할 수 있는것
 :class:dropdown
@@ -413,7 +440,7 @@ markdown을 작성하다가 어떤 문장을 `강조`하고 싶을때, Callouts�
 ::::::{tab-set}
 
 :::::{tab-item} Note
-::::{code-block} MyST
+::::{myst}
 ```{note}
 This is a note admonition
 ```
@@ -424,7 +451,7 @@ This is a note admonition
 :::::
 
 :::::{tab-item} Important
-::::{code-block} MyST
+::::{myst}
 ```{important}
 This is an important admonition
 ```
@@ -435,7 +462,7 @@ This is an important admonition
 :::::
 
 :::::{tab-item} Hint
-::::{code-block} MyST
+::::{myst}
 ```{hint}
 This is a hint admonition
 ```
@@ -446,7 +473,7 @@ This is a hint admonition
 :::::
 
 :::::{tab-item} See Also
-::::{code-block} MyST
+::::{myst}
 ```{seealso}
 This is a seealso admonition
 ```
@@ -457,7 +484,7 @@ This is a seealso admonition
 :::::
 
 :::::{tab-item} Tip
-::::{code-block} MyST
+::::{myst}
 ```{tip}
 This is a tip admonition
 ```
@@ -468,7 +495,7 @@ This is a tip admonition
 :::::
 
 :::::{tab-item} Attention
-::::{code-block} MyST
+::::{myst}
 ```{attention}
 This is an attention admonition
 ```
@@ -479,7 +506,7 @@ This is an attention admonition
 :::::
 
 :::::{tab-item} Caution
-::::{code-block} MyST
+::::{myst}
 ```{caution}
 This is a caution admonition
 ```
@@ -490,7 +517,7 @@ This is a caution admonition
 :::::
 
 :::::{tab-item} Warning
-::::{code-block} MyST
+::::{myst}
 ```{warning}
 This is a warning admonition
 ```
@@ -501,7 +528,7 @@ This is a warning admonition
 :::::
 
 :::::{tab-item} Danger
-::::{code-block} MyST
+::::{myst}
 ```{danger}
 This is a danger admonition
 ```
@@ -512,7 +539,7 @@ This is a danger admonition
 :::::
 
 :::::{tab-item} Error
-::::{code-block} MyST
+::::{myst}
 ```{error}
 This is an error admonition
 ```
@@ -536,7 +563,7 @@ code block은 문서네에 `Code`를 넣을 경우 사용된다.
 
 ::::::{tab-set}
 :::::{tab-item} python
-::::{code-block}
+::::{myst}
 ```python
 import matplotlib.pyplot as plt
 
@@ -551,7 +578,7 @@ plt.plot([1, 2, 3], [1, 2, 3], 'go-', label='line 1', linewidth=2)
 :::::
 
 :::::{tab-item} C
-::::{code-block}
+::::{myst}
 ```c
 #include <stdio.h>
 
@@ -572,7 +599,7 @@ int main() {
 :::::
 
 :::::{tab-item} C++
-::::{code-block}
+::::{myst}
 ```cpp
 #include <iostream>
 using namespace std;
@@ -595,7 +622,7 @@ int main() {
 :::::
 
 :::::{tab-item} C#
-::::{code-block}
+::::{myst}
 ```csharp
 using System;
 
@@ -619,7 +646,7 @@ class Program {
 :::::
 
 :::::{tab-item} Julia
-::::{code-block}
+::::{myst}
 ```julia
 println("Hello Julia!")
 ```
@@ -630,7 +657,7 @@ println("Hello Julia!")
 :::::
 
 :::::{tab-item} R
-::::{code-block}
+::::{myst}
 ```r
 print("Hello R!")
 ```
@@ -652,7 +679,7 @@ print("Hello R!")
 
 
 만약 코드 번호를 넣고 싶으면 `:linenos:`를 사용해서 나타낼 수 있으며
-::::{code}
+::::{code} python
 :linenos:
 ```python
 :linenos:
@@ -662,7 +689,7 @@ plt.plot([1, 2, 3], [1, 2, 3], 'go-', label='line 1', linewidth=2)
 ```
 ::::
 특정 줄번호를 강조하고 싶으면 `:emphasize-lines: 번호`를 사용해서 특정 라인을 강조 할 수 있다.
-::::{code}
+::::{code} python
 :linenos:
 :emphasize-lines:2,3,6
 ```python
@@ -675,7 +702,7 @@ plt.plot([1, 2, 3], [1, 2, 3], 'go-', label='line 1', linewidth=2)
 ::::
 
 또한 코드블록을 `:label:`을 달아 인용을 할 수 있으며, `:caption:`을 걸어서 인용할 수 있다.
-::::{code}
+::::{code} python
 :linenos:
 :emphasize-lines:2-5,8
 :label: example-code

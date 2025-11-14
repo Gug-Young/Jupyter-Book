@@ -96,22 +96,3 @@ This figure has been included from [](./interactive-notebooks.ipynb) and can be 
 : 임의의 수식이나, 그림 등을 인용할 수 있다.
 {ref}`img:altair-horsepower`
 :::
-
-
-
-![](PASTE_IMAGE/2025-11-13-02-26-10.png)
-**Figure1.**: 해당 그림은 
-
-
-
-::: {note}
-:class: dropdown
-Temp text
-format: jb-book
-root: `README.md`
-chapters:
-  - file: 01_why_jupyterbook.md
-  - file: 02_setup_demo
-  - file: 03_usecase.ipynb
-  - file: 04_fig_aesthetics.ipynb
-:::
