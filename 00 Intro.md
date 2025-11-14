@@ -1,18 +1,36 @@
 ---
-# title: Test note
-jupyter:
-  kernelspec:
-    display_name: Python 3
-    language: python
-    name: python3
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.18.1
+kernelspec:
+  name: python3
+  display_name: Python 3 (ipykernel)
+  language: python
 ---
 
-# Jupyter Book
-MyST(Markedly Structured Text)의 엔진을 사용한 문서/출판 플랫폼
-<doi:10.5281/ZENODO.14805610>
-https://proceedings.scipy.org/articles/NKVC9349
+# Intro
+`Jupyter Book`을 사용하는 방법을 익히고, 실제로 사용하도록 실습하는 것을 목표로한다.
+또한 Jupyter Book의 기반이 되는 MyST엔진의 문법을 익힌다.
 
+# Jupyter Book
+
+MyST의 엔진을 사용한 문서/출판 플랫폼 <doi:10.5281/ZENODO.14805610>
+[Link1](https://mystmd.org/guide/)
+[Link2](https://proceedings.scipy.org/articles/NKVC9349) 
+:::{card} MyST
+:link: https://mystmd.org
+해당 사이트에서 MyST의 문법에 대해서 더 자세하게 알 수 있다.
+
+The entire card can be clicked to navigate to `mystmd.org`.
+:::
+
+
+[AST](https://en.wikipedia.org/wiki/Abstract_syntax_tree) : AST는 추상 구문 구조(abstract syntax tree)의 약자로 컴퓨터가 코드를 이해하는데 필요한 구조이다.
 ```{mermaid}
+
 flowchart LR
   A[Jupyter Notebook] --> C
   B[MyST Markdown] --> C
@@ -46,25 +64,22 @@ flowchart LR
 ::::
 
 또한 문서를 만들어 웹에 게시하거나, 게시된 웹에서 작동 되도록 만들 수도 있다.
+MyST가 어떤 점이 장점인지는 다음 동영상을 통해서 확인해 볼 수 있다.
+
+::::{note} [Youtube](https://www.youtube.com/watch?v=yYcQf-Yq8B0)
+:class:dropdown
+:::{iframe} https://www.youtube.com/watch?v=yYcQf-Yq8B0
+:width: 100%
+:::
+::::
 
 ## How to start
+
+:open:
+
 https://proceedings.scipy.org/articles/hwcj9957
 
 https://mystmd.org/guide
-:::{card} Jupyter
-:link: ./02-myst-markdown-basics.ipynb
-Include figures and equations in your documents, easily cross-referencing content throughout your website, article or paper.
-:::
-
-:::{card} 🪐 Inline Execution
-:link: ./03-inline-interactivity.ipynb
-You can use the `{eval}` role to evaluate variables directly inside of your markdown cells, including widgets, sparklines and other variables.
-:::
-
-:::{card} 🏷 Adding Frontmatter
-:link: ./04-myst-frontmatter.ipynb
-You can add frontmatter like math macros, abbreviations, and information about title, authors, licenses, and affiliations.
-:::
 
 ## Executable note?
 실시간으로 시연이 가능한 노트를 사용할 수 있지만, `MyST`의 문법을 알고 있어야 보다 효율적으로 사용할 수 있다. 이번 발표에서는 가장 기본적인 내용 위주로 확인해 볼 것이다.
@@ -75,12 +90,13 @@ You can add frontmatter like math macros, abbreviations, and information about t
 어떤 문장[^아무이름]으로 입력이 가능하다.
 [^아무이름]: 이 각주를 설명하는 구조
 ```
-[^MyST]: [MyST](https://mystmd.org/guide/syntax-overview#skip-to-frontmatter)의 문법을 설명하는 글과 [비디오]( https://youtu.be/F3st8X0L1Ys?si=xWiAI85CPEUfkRZ8) 이다.`MyST`는 자동적으로 각주가 아랫 부분에 내려가게 된다. 또한 각주에 다른 `_.md`파일이나 `_.ipynb`을 [링크](./test.md)를 걸 수 있다.
+[^MyST]: [MyST](https://mystmd.org/guide/syntax-overview#skip-to-frontmatter)의 문법을 설명하는 글과 [비디오]( https://youtu.be/F3st8X0L1Ys?si=xWiAI85CPEUfkRZ8) 이다.`MyST`는 자동적으로 각주가 아랫 부분에 내려가게 된다. 또한 각주에 다른 `_.md`파일이나 `_.ipynb`을 [링크](./99_test.md)를 걸 수 있다.
 
 
 
-## 입력 방법
+## MyST 문법 및 입력 방법
 
+(equation-input)=
 ### 수식 입력
 수식을 여러 곳에서 사용할 수 있다. 
 
@@ -111,9 +127,9 @@ m\ddot{\theta}_i + \dot{\theta}_i = \Omega_i + \frac{K}{N}\sum_j \sin(\theta_j -
 \label{eq:eq_of_motion}
 \end{equation}
 
-이런식으로 수식을 입력이 가능하며, 해당 부분을 본문에 인용하려면  $\LaTeX$에서 `\ref{eq:temp}`를 사용하는 것과 비슷하게  `{ref}`를 사용가능하다. "Eq. {ref}`eq:eq_of_motion`" 또한 `[](eq:eq_of_motion)`을 사용하여 같은 결과를 얻을 수 있다. "Eq. [](eq:eq_of_motion)"
+이런식으로 수식을 입력이 가능하며, 해당 부분을 본문에 인용하려면  $\LaTeX$에서 `\ref{eq:temp}`를 사용하는 것과 비슷하게  `{ref}`를 사용가능하다. "Eq. {ref}`eq:eq_of_motion`" 또한 `[](#eq:eq_of_motion)`을 사용하여 같은 결과를 얻을 수 있다. "Eq. [](#eq:eq_of_motion)"
 
-또한 본문의 수식의 순서가 달라지면 자동으로 변경되며, [다른 페이지](./test.md)에서 해당 수식을 인용도 가능하다.
+또한 본문의 수식의 순서가 달라지면 자동으로 변경되며, [다른 페이지](./99_test.md)에서 해당 수식을 인용도 가능하다.
 
 ### Table
 `Markdown`문법으로 표를 작성할 수 있으며, `MyST`문법을 사용해서 `label` 및 caption을 넣을 수 있다. 또한 `CSV` 형태나, `HTML` 형태 역시 가능하다.
@@ -181,9 +197,10 @@ HTML형태로 작성된 테이블블
 </table>
 :::
 
-해당 부분 역시 `{ref}`를 사용해서 인용을 할 수 있으며, [다른 문서](test.md)에서도 인용이 가능하다.
 
+해당 부분 역시 `{ref}`를 사용해서 인용을 할 수 있으며, [다른 문서](99_test.md)에서도 인용이 가능하다.
 
+(sec:input_fig)=
 ### 그림 입력
 `Markdown` 문법을 사용할 수 있으며
 ```
@@ -199,6 +216,7 @@ HTML형태로 작성된 테이블블
 
 Relaxing at the beach 🏝 🌊 😎
 ```
+
 ::::
 ```{figure} https://github.com/rowanc1/pics/blob/main/sunset.png?raw=true
 :label: fig:myFigure
@@ -210,7 +228,7 @@ Relaxing at the beach 🏝 🌊 😎
 해당 그림의 인용은 `[](fig:myfig)`를 하거나 `{ref}`를 사용할 수 있다. "{ref}`fig:myFigure`"
 Figure의 순서는 그림의 위치가 변경되면 자동으로 바뀐다.
 
-[다른 문서](test.md)에서 그림을 인용하는 경우 `label`이 유일할 경우 가능하며, 같은 방법으로 가능하다.
+[다른 문서](99_test.md)에서 그림을 인용하는 경우 `label`이 유일할 경우 가능하며, 같은 방법으로 가능하다.
 
 
 ### 동영상 입력
@@ -233,7 +251,7 @@ caption $L_x=L_y=128,\alpha=-1,\beta=1,\eta=0.1$에서의 3종의 vicsek model �
 
 If you have ffmpeg installed, you may also include `.mov` and `.avi` video files, and MyST will convert them to .mp4 and include them. Videos can also be used in the image or even in simple Markdown image.
 
-동영상의 경우도 `{ref}` 혹은 `[](#vid:vicsek_model)` 으로 인용이 가능하다. [](vid:vicsek_model)
+동영상의 경우도 `{ref}` 혹은 `[](#vid:vicsek_model)` 으로 인용이 가능하다. [](#vid:vicsek_model)
 
 #### YouTube
 `YouTube`의 경우 `{iframe}`을 사용해서 동영상 링크를 넣어 embedding이 가능하다.
@@ -249,6 +267,355 @@ Get up and running with MyST in Jupyter!
 :width: 100%
 Get up and running with MyST in Jupyter!
 :::
+
+
+### Callouts
+markdown을 작성하다가 어떤 문장을 `강조`하고 싶을때, Callouts를 사용이 가능하다. 
+사용가능한 callout의 종류는 다음과 같다.
+
+```{list-table} Named admonitions that can be used as directives
+:label: admonitions-list
+* - 🔵 `{note}`
+  - 🟠 `{attention}`
+* - 🔵 `{important}`
+  - 🟠 `{caution}`
+* - 🟢 `{hint}`
+  - 🟠 `{warning}`
+* - 🟢 `{seealso}`
+  - 🔴 `{danger}`
+* - 🟢 `{tip}`
+  - 🔴 `{error}`
+```
+::::::{tab-set}
+
+:::::{tab-item} Note
+::::{code-block} MyST
+```{note}
+This is a note admonition
+```
+::::
+```{note}
+This is a note admonition
+```
+:::::
+
+:::::{tab-item} Important
+::::{code-block} MyST
+```{important}
+This is an important admonition
+```
+::::
+```{important}
+This is an important admonition
+```
+:::::
+
+:::::{tab-item} Hint
+::::{code-block} MyST
+```{hint}
+This is a hint admonition
+```
+::::
+```{hint}
+This is a hint admonition
+```
+:::::
+
+:::::{tab-item} See Also
+::::{code-block} MyST
+```{seealso}
+This is a seealso admonition
+```
+::::
+```{seealso}
+This is a seealso admonition
+```
+:::::
+
+:::::{tab-item} Tip
+::::{code-block} MyST
+```{tip}
+This is a tip admonition
+```
+::::
+```{tip}
+This is a tip admonition
+```
+:::::
+
+:::::{tab-item} Attention
+::::{code-block} MyST
+```{attention}
+This is an attention admonition
+```
+::::
+```{attention}
+This is an attention admonition
+```
+:::::
+
+:::::{tab-item} Caution
+::::{code-block} MyST
+```{caution}
+This is a caution admonition
+```
+::::
+```{caution}
+This is a caution admonition
+```
+:::::
+
+:::::{tab-item} Warning
+::::{code-block} MyST
+```{warning}
+This is a warning admonition
+```
+::::
+```{warning}
+This is a warning admonition
+```
+:::::
+
+:::::{tab-item} Danger
+::::{code-block} MyST
+```{danger}
+This is a danger admonition
+```
+::::
+```{danger}
+This is a danger admonition
+```
+:::::
+
+:::::{tab-item} Error
+::::{code-block} MyST
+```{error}
+This is an error admonition
+```
+::::
+```{error}
+This is an error admonition
+```
+:::::
+
+::::::
+
+
+
+
+(Code_Code-blocks)=
+### Code & Code-blocks
+
+code block은 문서네에 `Code`를 넣을 경우 사용된다.
+
+`code-block`은 단순하게 `:`혹은 `'`를 3개 사용한 다음 프로그램 언어를 붙여서 사용 가능하다
+
+::::::{tab-set}
+:::::{tab-item} python
+::::{code-block}
+```python
+import matplotlib.pyplot as plt
+
+plt.plot([1, 2, 3], [1, 2, 3], 'go-', label='line 1', linewidth=2)
+```
+::::
+```python
+import matplotlib.pyplot as plt
+
+plt.plot([1, 2, 3], [1, 2, 3], 'go-', label='line 1', linewidth=2)
+```
+:::::
+
+:::::{tab-item} C
+::::{code-block}
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello C!\n");
+    return 0;
+}
+```
+::::
+```c
+#include <stdio.h>
+
+int main() {
+    printf("Hello C!\n");
+    return 0;
+}
+```
+:::::
+
+:::::{tab-item} C++
+::::{code-block}
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello C++!" << endl;
+    return 0;
+}
+```
+::::
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hello C++!" << endl;
+    return 0;
+}
+```
+:::::
+
+:::::{tab-item} C#
+::::{code-block}
+```csharp
+using System;
+
+class Program {
+    static void Main() {
+        Console.WriteLine("Hello C#");
+    }
+}
+```
+::::
+```csharp
+using System;
+
+class Program {
+    static void Main() {
+        Console.WriteLine("Hello C#");
+    }
+}
+}
+```
+:::::
+
+:::::{tab-item} Julia
+::::{code-block}
+```julia
+println("Hello Julia!")
+```
+::::
+```julia
+println("Hello Julia!")
+```
+:::::
+
+:::::{tab-item} R
+::::{code-block}
+```r
+print("Hello R!")
+```
+::::
+```r
+print("Hello R!")
+```
+:::::
+::::::
+
+혹은 기존에 있는 `file`의 라인을 출력 할 수 있다.
+::::{note} `{literalinclude} myst.yml` 결과
+:class:dropdown
+```{literalinclude} myst.yml
+:lineno-match:
+:emphasize-lines:21,
+```
+::::
+
+
+만약 코드 번호를 넣고 싶으면 `:linenos:`를 사용해서 나타낼 수 있으며
+::::{code}
+:linenos:
+```python
+:linenos:
+import matplotlib.pyplot as plt
+
+plt.plot([1, 2, 3], [1, 2, 3], 'go-', label='line 1', linewidth=2)
+```
+::::
+특정 줄번호를 강조하고 싶으면 `:emphasize-lines: 번호`를 사용해서 특정 라인을 강조 할 수 있다.
+::::{code}
+:linenos:
+:emphasize-lines:2,3,6
+```python
+:linenos:
+:emphasize-lines:2,3,6
+import matplotlib.pyplot as plt
+
+plt.plot([1, 2, 3], [1, 2, 3], 'go-', label='line 1', linewidth=2)
+```
+::::
+
+또한 코드블록을 `:label:`을 달아 인용을 할 수 있으며, `:caption:`을 걸어서 인용할 수 있다.
+::::{code}
+:linenos:
+:emphasize-lines:2-5,8
+:label: example-code
+:caption: caption및 label을 설명하기 위한 코드블럭
+```python
+:linenos:
+:emphasize-lines:2-5,8
+:label: example-code
+:caption: caption및 label을 설명하기 위한 코드블럭
+import matplotlib.pyplot as plt
+
+plt.plot([1, 2, 3], [1, 2, 3], 'go-', label='line 1', linewidth=2)
+```
+::::
+
+또한 이전과 같은 `{ref}`혹은 `[](#label)`을 통해서 인용을 할 수 있다.
+> `{ref}` {ref}`example-code`  
+> `[](#label)` {ref}`example-code`
+
+또한 `![](#label)`을 사용해서 해당 부분을 임베딩할 수 있으며, 같은 프로젝크 내에 있는 [다른 문서](./99_test.md)에서도 인용 및 임베딩 할 수 있다.
+
+
+
+
+
+
+
+
+
+(subsec:Header-Targets)=
+### Header Targets
+`Markdown`문서를 작성하면서 chapter, section, subsection을 나눌 수 있다. 나누는 방법은 `#`의 개수를 통해서 나눌 수 있다.
+
+`#` Header and chapter
+:::{myst} 
+`#` `H1`: Capter에 해당된다.
+# Capter Title
+`##` `H2`: Section에 해당된다.
+## Section Title
+`###` `H3` : Subsection에 해당된다.
+### Subsection title
+`####` `H4` : 추가적으로 설명하기 위해서 사용된다.
+#### Example
+`#####` `H5`: 더 자세하게 설명한 내용을 추가한다.
+##### test
+:::
+
+또한 $\LaTeX$에서 `section`,`chpater`의 라벨을 다는 것과 같이 라벨을 걸어 줄 수 있다. 해당 방법은 `(sec:label)=`을 해더 앞에 넣어준다.
+:::MyST
+=(sec:label)
+## Section title
+:::
+또한 `{ref}`를 통해서 해당 해더로 이동 할 수 있다.
+{ref}`subsec:Header-Targets`
+또한 헤더의 번호를 해당 문서의 번호를 넣는 옵션을 선택할 수 있다.
+:::MyST
+---
+numbering:
+  heading_1: False # H1의 번호를 끈다.
+  heading_2: true  # H2의 번호를 킨다.
+  heading_3: true  # H3의 번호를 킨다.
+---
+:::
+
 
 ## 참고 문헌 인용
 `DOI`를 다음과 같이 붙여 넣는것으로 사용 가능하며
@@ -291,124 +658,15 @@ Synchronization is a significant phenomenon observed in various natural and arti
 더 자세한 인용 방법은 해당 [사이트](https://mystmd.org/guide/citations)에서 확인이 가능하다.
 ![](PASTE_IMAGE/2025-11-13-08-23-18.png)
 
-## Cross-ref
-다른 `.ipynb`에 있는 그림을 인용할 수 있다. 다른 `.ipynb`에 있는 그림을 인용하기 위해서는 아래와 같이
-```python
-#| label: img:test
-points & bars
-```
-이런식으로 그림을 그려서 넣어서 `#|label: img:아무이름`으로 사용하면 되고, 그림을 그리는 경우는 기존 `Markdown`문법을 사용하거나 label과 caption을 넣기 위해서는 `MyST`문법을 사용하여 다음과 같이 그릴 수 있다.
-::::
-```{figure} #img:altair-horsepower
-:label: fig-altair-horsepower
-This figure has been included from [](./interactive-notebooks.ipynb) and can be referred to in cross-references through a different label.
-```
-::::
-```{figure} #img:altair-horsepower
-:label: fig-altair-horsepower
-This figure has been included from [](./interactive-notebooks.ipynb) and can be referred to in cross-references through a different label.
-```
-:::{note} 해당 부분의 구조
-`{figure} #img:example`
-: `#` 은 이미 출력된 결과물을 인용하는 구조,  
-`label`이 `img:example`이라고 출력한 결과를 가져온다.
-
-`:label: fig-abcd`
-: `:label:` 다음에 $\LaTeX$ 문법에서 사용하는 labeling과 동일하게 사용 가능
-
-`This figure has been ~`
-: caption에 해당되는 부분이며, 논문에 작성하 듯이 caption을 작성하면 됨
-:::
+### Wikipedia
+<wiki:Wikipedia>와 같은 홈페이지를 띄우도록 만들 수 있다.
 
 
+예를 들어 아래와 같이 Wikipedia의 링크를 첨부할 수있다.
+> [복잡계](wiki:complexity_science)는 대단히 재밌다. 
 
+하는 방법은 `<wiki:title>`으로 인용을 하거나 `[text](wiki:The_Big_Bang_Theory)`로 인용하는 방법이 있다.
+>`<wiki:title>` <wiki:Apple>  
+>`[text](wiki:The_Big_Bang_Theory)` [text](wiki:The_Big_Bang_Theory)
 
-라벨을 사용해 주는 경우, 해당 `label`이 다른 라벨과 겹치지 않아야 되며 다른 [문서](./test.md)에서도 사용이 가능하다.
-
-:::{tip} 만약 그리만 넣고 싶을 경우
-:class: dropdown
-`![](img:이미지 이름)`을 사용해 주어 임베딩이 가능하며
-![](#img:altair-horsepower)
-`{ref}'example label'`
-: 임의의 수식이나, 그림 등을 인용할 수 있다.
-{ref}`img:altair-horsepower`
-:::
-
-
-
-
-
-
-
-
-
-
-
-
-
-### Interactive 
-
-:::{code-block}
-text = 'Hellow world'
-
-:::
-Some content
-
-:::{code-block} cmd
-pip install jupyter-block
-:::
-
-
-```{code-cell}
-:tags: [raises-exception]
-print("Hello" + 10001)
-```
-
-```{code-cell}
-:tags: [skip-execution]
-
-name = input("What is your name?")
-print(name)
-```
-
-:::{code-cell} python
-:label: markdown-myst
-print("Here's some python!")
-:::
-이런식으로 하면 해당 결과에서 출력 된 결과물을 [하이퍼 링크](#markdown-myst)를 통해서 확인 해 볼 수 있다.
-또한 해당 결과에서 출력된 결과를 확인해 보고 싶으면, 
-
-
-:::{code-cell}
-#| label : 시연용그래프
-import numpy as np
-import matplotlib.pyplot as plt
-
-x = np.linspace(0,np.pi,10000)
-y = np.cos(x)
-plt.plot(x,y)
-plt.xlabel(r'$x$',fontsize=15)
-plt.ylabel(r'$y$',fontsize=15)
-:::
-
-
-:::{code-cell} cmd
-:
-jupyter book starrt
-:::
-![](PASTE_IMAGE/2025-11-13-02-26-10.png)
-**Figure1.**: 해당 그림은 
-
-
-
-::: {note}
-:class: dropdown
-Temp text
-format: jb-book
-root: `README.md`
-chapters:
-  - file: 01_why_jupyterbook.md
-  - file: 02_setup_demo
-  - file: 03_usecase.ipynb
-  - file: 04_fig_aesthetics.ipynb
-:::
+여기서 제목에 띄어쓰기가 들어가는 경우 `_`로 단어사이를 띄어준다.
