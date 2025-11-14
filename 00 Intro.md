@@ -48,17 +48,14 @@ flowchart LR
 
 ::::{tab-set}
 :::{tab-item} Reusable
-:sync: tab1
 ![](PASTE_IMAGE/2025-11-13-08-40-20.png)
 
 :::
 :::{tab-item} Reproducible
-:sync: tab2
 ![](PASTE_IMAGE/2025-11-13-08-40-44.png)
 :::
 
 :::{tab-item} Interactive
-:sync: tab1
 ![](PASTE_IMAGE/2025-11-13-08-41-12.png)
 
 ::::
@@ -74,6 +71,137 @@ MyST가 어떤 점이 장점인지는 다음 동영상을 통해서 확인해 �
 ::::
 
 ## How to start
+필요한 것
+- python
+- [가상환경][venv]
+
+`가상환경`을 만들어 주고 그 환경에서 `jupyter`를 설치해 준다.
+
+::::{tab-set}
+:::{tab-item} Unix/MacOS
+:sync: tab1
+```bash
+python3 -m venv .venv
+```
+여기서 `.venv`를 원하는 이름으로 작성해도 된다.
+:::
+:::{tab-item} Windows
+:sync: tab2
+```bash
+py -m venv .venv
+```
+여기서 `.venv`를 원하는 이름으로 작성해도 된다.
+:::
+::::
+가상환경을 만들어 준 후 `가상환경`을 `Activate`해주면 된다.
+::::{tab-set}
+:::{tab-item} Unix/MacOS
+:sync: tab1
+```bash
+source .venv/bin/activate
+```
+여기서 `.venv`가 아닐 경우 만들어둔 `가상환경`의 이름에 해당된다.
+:::
+:::{tab-item} Windows
+:sync: tab2
+```bash
+.venv\Scripts\activate
+```
+여기서 `.venv`가 아닐 경우 만들어둔 `가상환경`의 이름에 해당된다.
+:::
+::::
+
+가상환경을 활성화 해준 상태에서 `jupyter book`을 설치해 준다.
+
+```{code}
+:filename: install
+pip install jupyter-book
+jupyter book start
+```
+
+:::::{note} 추가로 설치 할 수 있는것
+:class:dropdown
+::::{grid} 1 2 2 2
+
+:::{card}
+:header: Install with `pip` 🐍
+
+In a [virtual environment][venv]:
+
+```shell
+pip install "jupyter-book>=2.0.0a0"
+```
+
+:::
+
+:::{card}
+:header: Install with [`mamba`][mamba] / `conda` 🔥
+
+```{warning}
+Jupyter Book 2 is not yet released on `conda-forge`. Stay tuned!
+```
+
+```shell
+mamba install -c conda-forge \
+"jupyter-book>=2"
+```
+
+:::
+
+:::{card}
+:header: Install with [`pipx`][pipx] ⚙️
+
+Never heard of `pipx`? See [the documentation][pipx] for more.
+
+```shell
+pipx install "jupyter-book>=2.0.0a0"
+```
+
+:::
+
+:::{card}
+:header: Install with [`uv`][uv] 🚀
+
+Never heard of `uv`? See [the documentation][uv] for more.
+
+```shell:
+uv add "jupyter-book>=2.0.0a0"
+```
+
+:::
+
+:::{card}
+:header: Install with [`pixi`][pixi] 🔥
+
+```{warning}
+Jupyter Book 2 is not yet released on `conda-forge`. Stay tuned!
+```
+
+Never heard of `pixi`? See [the documentation][pixi] for more.
+
+```shell:
+pixi add "jupyter-book>=2"
+```
+
+:::
+    
+:::{card}
+:header: Install with [`npm`][npm] 🔥
+
+Never heard of `npm`? See [the documentation][npm] for more.
+
+```shell:
+npm install -g "jupyter-book@>=2.0.0-a0"
+```
+
+:::
+
+::::
+:::::
+
+
+
+
 
 :open:
 
@@ -670,3 +798,11 @@ Synchronization is a significant phenomenon observed in various natural and arti
 >`[text](wiki:The_Big_Bang_Theory)` [text](wiki:The_Big_Bang_Theory)
 
 여기서 제목에 띄어쓰기가 들어가는 경우 `_`로 단어사이를 띄어준다.
+
+
+[mamba]: https://mamba.readthedocs.io/en/latest/
+[pixi]: https://pixi.sh/
+[pipx]: https://pipx.pypa.io/stable/
+[venv]: https://packaging.python.org/en/latest/guides/installing-using-pip-and-virtual-environments/
+[npm]: https://docs.npmjs.com/downloading-and-installing-node-js-and-npm/
+[uv]: https://docs.astral.sh/uv/
